@@ -69,7 +69,7 @@ final class ZipArchiveAdapter implements FilesystemAdapter
         $archive = $this->zipArchiveProvider->createZipArchive();
         $prefixedPath = $this->pathPrefixer->prefixPath($path);
 
-        if ( ! $archive->addFromString($prefixedPath, $contents)) {
+        if ( ! $archive->addFromString($path, $contents)) {
             throw UnableToWriteFile::atLocation($path, 'writing the file failed');
         }
 
